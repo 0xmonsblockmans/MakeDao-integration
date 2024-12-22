@@ -15,7 +15,7 @@ const CollateralPage = () => {
     const { walletProvider } = useAppKitProvider('eip155');
     const { updateBalance } = useContext(DaiContext);
 
-    
+
     useEffect(() => {
         updateRad();
     }, [address]);
@@ -48,6 +48,8 @@ const CollateralPage = () => {
         const daiJoin = new Contract(contracts.DaiJoin.address, contracts.DaiJoin.abi, signer);
         const tx = await daiJoin.join(address, parseEther(wad));
         await tx.wait();
+        updateRad();
+        updateBalance();
     }, [walletProvider, wad, address])
 
     const exit = useCallback(async () => {
@@ -63,6 +65,8 @@ const CollateralPage = () => {
         const daiJoin = new Contract(contracts.DaiJoin.address, contracts.DaiJoin.abi, signer);
         const tx = await daiJoin.exit(address, wad);
         await tx.wait();
+        updateRad();
+        updateBalance();
     }, [walletProvider, wad, address])  
 
     return (
