@@ -63,7 +63,7 @@ const CollateralPage = () => {
             await tx.wait();
         }
         const daiJoin = new Contract(contracts.DaiJoin.address, contracts.DaiJoin.abi, signer);
-        const tx = await daiJoin.exit(address, wad);
+        const tx = await daiJoin.exit(address, parseEther(wad));
         await tx.wait();
         updateRad();
         updateBalance();
