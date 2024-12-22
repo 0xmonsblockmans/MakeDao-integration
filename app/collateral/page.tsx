@@ -1,7 +1,7 @@
 "use client"
 
 import { contracts } from "@/config/contracts";
-import { DaiContext } from "@/context/DaiContext";
+import { DaiContext } from "@/context/daiContext";
 import { Button, Input } from "@headlessui/react";
 import { useAppKitAccount, useAppKitProvider } from "@reown/appkit/react";
 import { Contract, formatEther, parseEther } from "ethers";

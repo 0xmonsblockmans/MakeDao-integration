@@ -3,7 +3,7 @@ import { FC, useContext, useEffect, useState } from "react";
 import ConnectButton from "./ConnectButton";
 import { useAppKitAccount } from "@reown/appkit/react";
 import Link from "next/link";
-import { DaiContext } from "@/context/DaiContext";
+import { DaiContext } from "@/context/daiContext";
 
 
 interface Props { }
