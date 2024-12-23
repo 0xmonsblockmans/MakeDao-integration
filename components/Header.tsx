@@ -11,7 +11,7 @@ interface Props { }
 
 const Header: FC<Props> = () => {
     const { address } = useAppKitAccount();
-    const { balance, updateBalance } = useContext(DaiContext);
+    const { balance, updateBalance, gBalance } = useContext(DaiContext);
 
     useEffect(() => {
         updateBalance();
@@ -22,8 +22,12 @@ const Header: FC<Props> = () => {
             <div className="flex container items-center gap-8">
                 <div className="flex gap-4">
                     <div className="flex items-center gap-2">
-                        <div>Dai</div>
+                        <div>Dai:</div>
                         <div className="truncate">{Number(balance).toFixed(4)}</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div>Gem:</div>
+                        <div className="truncate">{Number(gBalance).toFixed(4)}</div>
                     </div>
                 </div>
                 <div className="flex gap-4 items-center justify-center flex-1 text-xl">

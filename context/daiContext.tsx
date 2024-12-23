@@ -8,6 +8,7 @@ import { createContext, useCallback, useState } from "react";
 interface DaiContextProps {
     balance: string;
     updateBalance: () => void;
+    gBalance: string;
 }   
 
 export const DaiContext = createContext({} as DaiContextProps);
@@ -15,6 +16,8 @@ export const DaiContext = createContext({} as DaiContextProps);
 
 const DaiContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [balance, setBalance] = useState('0');
+    const [gBalance, setGBalance] = useState('0');
+
     const { address } = useAppKitAccount();
     const { walletProvider } = useAppKitProvider('eip155');
     const updateBalance = useCallback(async () => {
@@ -24,11 +27,14 @@ const DaiContextProvider = ({ children }: { children: React.ReactNode }) => {
         const signer = await ethersProvider.getSigner();
         const daiContract = new Contract(contracts.Dai.address, contracts.Dai.abi, signer);
         const dBalance = await daiContract.balanceOf(address);
+        const gemContract = new Contract(contracts.Gem.address, contracts.Gem.abi, signer);
+        const gemBalance = await gemContract.balanceOf(address);
+        setGBalance(formatEther(gemBalance));
         setBalance(formatEther(dBalance));
     }, [address]);
 
     return (
-        <DaiContext.Provider value={{ balance, updateBalance }}>
+        <DaiContext.Provider value={{ balance, updateBalance, gBalance }}>
             { children }
         </DaiContext.Provider>
     )
