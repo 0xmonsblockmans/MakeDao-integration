@@ -32,7 +32,7 @@ const Header: FC<Props> = () => {
                 </div>
                 <div className="flex gap-4 items-center justify-center flex-1 text-xl">
                     <Link href={urls.collateral}>Collateral</Link>
-                    <Link href={urls.auction}>Auctions</Link>
+                    <Link href={urls.debtAuction}>Debt Auction</Link>
                 </div>
                 <ConnectButton />
             </div>
