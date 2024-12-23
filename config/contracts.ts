@@ -10,12 +10,17 @@ import Flap from "@/contracts/flap.sol/Flapper.json";
 import Flop from "@/contracts/flop.sol/Flopper.json";
 import Vow from "@/contracts/vow.sol/Vow.json";
 import Jug from "@/contracts/jug.sol/Jug.json";
+import Gem from "@/contracts/token.sol/DSToken.json";
 
 
 export const contracts = {
   Dai: {
     address: "0xD34b13a386DC287881503AD1F9D97b34a9eFfd0e",
     abi: Dai.abi
+  },
+  Gem: {
+    address: "0x6077Cb4Bf24127Ea554644c68Cb2eA9e71732653",
+    abi: Gem.abi
   },
   Vat: {
     address: "0x1d4EAf34C1530aB17d34Cb9c303edB3caeDE539E",
@@ -26,7 +31,7 @@ export const contracts = {
     abi: DaiJoin.abi
   },
   GemJoin: {
-    address: "0xD6eE66e6a02bE468e38DEa63Cf0110Bba2A5956d",
+    address: "0xC94D7Fd0410CD4D7fC4864f84c6c4196Ab8Cd023",
     abi: GemJoin.abi
   },
   Spot: {
@@ -60,5 +65,6 @@ export const contracts = {
   Jug: {
     address: "0xfC957eE17A0BaA113c76c02e0540794b6EC68e3D",
     abi: Jug.abi
-  }
+  },
+
 };
