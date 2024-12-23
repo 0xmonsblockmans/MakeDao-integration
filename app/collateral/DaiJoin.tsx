@@ -29,7 +29,7 @@ const DaiJoin: FC<Props> = ({ setRad }) => {
             const signer = await ethersProvider.getSigner();
             const vat = new Contract(contracts.Vat.address, contracts.Vat.abi, signer);
             const radValue = await vat.dai(address);
-            setRad(formatEther(radValue));
+            setRad(String(Number(formatEther(radValue)) / (10 ** 27)));
         } catch (e) {
 
         }

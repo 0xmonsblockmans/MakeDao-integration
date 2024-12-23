@@ -2,7 +2,8 @@
 import { contracts } from "@/config/contracts";
 import { urls } from "@/config/urls";
 import { Button, Input } from "@headlessui/react";
-import { useAppKitAccount } from "@reown/appkit/react";
+import { useAppKitAccount, useAppKitProvider } from "@reown/appkit/react";
+import { BrowserProvider } from "ethers";
 import { Contract, parseEther } from "ethers";
 import Link from "next/link";
 import { useCallback, useState } from "react";
@@ -12,6 +13,7 @@ const CreateAuctionPage = () => {
     const [bid, setBid] = useState('0');
 
     const { address } = useAppKitAccount();
+    const { walletProvider } = useAppKitProvider('eip155');
 
     const create = useCallback(async () => {
         // @ts-ignore
@@ -30,7 +32,7 @@ const CreateAuctionPage = () => {
             <div className="lg:w-1/3 w-full flex flex-col gap-2">
                 <div>
                     <div>
-                        Gem amount for auction
+                       Max gem amount for auction
                     </div>
                     <Input
                         value={lot}

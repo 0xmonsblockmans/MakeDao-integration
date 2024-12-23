@@ -28,7 +28,9 @@ const AuctionPage = () => {
                 let auctions: Bid[] = [];
                 for (let i = 1; i <= Number(kicks); i++) {
                     const bid = await flop.bids(i);
+                    console.log(bid)
                     auctions.push({
+                        id: i,
                         bid: formatEther(bid[0]),
                         lot: formatEther(bid[1]),
                         guy: bid[2],

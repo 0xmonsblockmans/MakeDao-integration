@@ -55,7 +55,7 @@ export const contracts = {
     abi: Flap.abi
   },
   Flop: {
-    address: "0x4AEEba922B8F84702DE63De7bBC688D3b0a06170",
+    address: "0x1e978764e6Bb7A6C24ddD790dEE19731167e4A00",
     abi: Flop.abi
   },
   Vow: {

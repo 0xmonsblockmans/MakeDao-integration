@@ -30,7 +30,7 @@ const GemJoin: FC<Props> = ({ setRad }) => {
             const join = new Contract(contracts.GemJoin.address, contracts.GemJoin.abi, signer);
             const ilk = await join.ilk();
             const radValue = await vat.gem(ilk, address);
-            setRad(formatEther(radValue));
+            setRad(String(Number(formatEther(radValue)) / (10 ** 27)));
         } catch (e) {
             console.log(e)
         }

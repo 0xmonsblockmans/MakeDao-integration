@@ -6,4 +6,5 @@ export interface Bid {
     guy: string;
     tic: string;
     end: string;
+    id: number;
 }
