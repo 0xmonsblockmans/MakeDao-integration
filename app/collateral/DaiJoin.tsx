@@ -18,10 +18,6 @@ const DaiJoin: FC<Props> = ({ setRad }) => {
     const { walletProvider } = useAppKitProvider('eip155');
     const { updateBalance } = useContext(DaiContext);
 
-    useEffect(() => {
-        updateRad();
-    }, [address]);
-
     const updateRad = useCallback(async () => {
         try {
             // @ts-ignore
@@ -33,7 +29,7 @@ const DaiJoin: FC<Props> = ({ setRad }) => {
         } catch (e) {
 
         }
-    }, [address])
+    }, [address]);
 
     const join = useCallback(async () => {
         // @ts-ignore

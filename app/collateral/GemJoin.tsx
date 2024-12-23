@@ -17,9 +17,6 @@ const GemJoin: FC<Props> = ({ setRad }) => {
     const { walletProvider } = useAppKitProvider('eip155');
     const { updateBalance } = useContext(DaiContext);
 
-    useEffect(() => {
-        updateRad();
-    }, [address]);
 
     const updateRad = useCallback(async () => {
         try {
@@ -30,7 +27,7 @@ const GemJoin: FC<Props> = ({ setRad }) => {
             const join = new Contract(contracts.GemJoin.address, contracts.GemJoin.abi, signer);
             const ilk = await join.ilk();
             const radValue = await vat.gem(ilk, address);
-            setRad(String(Number(formatEther(radValue)) / (10 ** 27)));
+            setRad(formatEther(radValue));
         } catch (e) {
             console.log(e)
         }
