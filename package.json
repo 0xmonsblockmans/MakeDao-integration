@@ -13,12 +13,14 @@
     "@reown/appkit": "^1.6.2",
     "@reown/appkit-adapter-ethers": "^1.6.2",
     "ethers": "^6.13.4",
+    "moment": "^2.30.1",
     "next": "14.2.21",
     "react": "^18",
     "react-dom": "^18",
     "truncate-eth-address": "^1.0.2"
   },
   "devDependencies": {
+    "@types/moment": "^2.13.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
